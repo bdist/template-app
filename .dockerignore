@@ -1,0 +1,14 @@
+.editorconfig
+.flake8
+.gitattributes
+.github
+.gitignore
+.hadolint.yaml
+.markdownlint.yaml
+.pre-commit-config.yaml
+.git
+fly.toml
+Procfile
+README.md
+runtime.txt
+setup.cfg

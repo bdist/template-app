@@ -44,10 +44,10 @@
    flyctl secrets set WEB_CONCURRENCY=2
    ```
 
-6. We will set the `DATABASE_URL` to use the database from Tecnico. Note that you need to replace `istID` and `pgpass` using your information.
+6. We will set the `DATABASE_URL` to use the database from Tecnico. Note that you need to replace `istxxxxxx` and `pgpass` using your information.
 
    ```bash
-   flyctl secrets set DATABASE_URL='postgres://istID:pgpass@db.tecnico.ulisboa.pt/istID'
+   flyctl secrets set DATABASE_URL='postgres://istxxxxxx:pgpass@db.tecnico.ulisboa.pt/istxxxxxx'
    ```
 
 7. Are you ready for our first deploy?
@@ -114,10 +114,10 @@
    heroku config:set WEB_CONCURRENCY=2
    ```
 
-6. We will set the `DATABASE_URL` to use the database from Tecnico. Note that you need to replace `istID` and `pgpass` using your information.
+6. We will set the `DATABASE_URL` to use the database from Tecnico. Note that you need to replace `istxxxxxx` and `pgpass` using your information.
 
    ```bash
-   heroku config:set DATABASE_URL='postgres://istID:pgpass@db.tecnico.ulisboa.pt/istID'
+   heroku config:set DATABASE_URL='postgres://istxxxxxx:pgpass@db.tecnico.ulisboa.pt/istxxxxxx'
    ```
 
 7. Are you ready for our first deploy?

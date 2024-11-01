@@ -74,7 +74,7 @@
 
 4. Heroku wants your app to reside standalone in a Git repository.
    Create a new private repository to hold your app on Github.com and push your app there.
-   Notice that Heroku wants most files to be at the root of the repository (e.g., Procfile, runtime.txt, etc.)
+   Notice that Heroku wants most files to be at the root of the repository (e.g., Procfile, .python-version, etc.)
 
 5. Add a new git remote to your app repository using the `Heroku CLI`. This remote `heroku` is the one you will push to whennever you want to deploy the app to Heroku.
 

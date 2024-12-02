@@ -35,7 +35,7 @@ repos:
 
   # Autoformat: HTML, Jinja, etc.
   - repo: https://github.com/djlint/djLint
-    rev: v1.36.1
+    rev: v1.36.3
     hooks:
       - id: djlint-reformat-jinja
         files: "\\.html"
@@ -90,7 +90,7 @@ repos:
 
   # Lint: Markdown
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.42.0
+    rev: v0.43.0
     hooks:
       - id: markdownlint
         args: ["--fix"]

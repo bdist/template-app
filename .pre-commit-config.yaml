@@ -14,7 +14,7 @@
 repos:
   # Autoupdate: Python code
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.19.0
+    rev: v3.19.1
     hooks:
       - id: pyupgrade
         args: [--py39-plus]
@@ -35,7 +35,7 @@ repos:
 
   # Autoformat: HTML, Jinja, etc.
   - repo: https://github.com/djlint/djLint
-    rev: v1.36.3
+    rev: v1.36.4
     hooks:
       - id: djlint-reformat-jinja
         files: "\\.html"

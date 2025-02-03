@@ -3,7 +3,7 @@
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "bdist-bankapi"
+app = "bdist-template-app"
 primary_region = "mad"
 swap_size_mb = 256
 

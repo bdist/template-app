@@ -21,14 +21,14 @@ repos:
 
   # Automatically sort python imports
   - repo: https://github.com/PyCQA/isort
-    rev: 6.0.1
+    rev: 6.1.0
     hooks:
       - id: isort
         args: [--profile, black]
 
   # Autoformat: Python code
-  - repo: https://github.com/psf/black
-    rev: 25.1.0
+  - repo: https://github.com/psf/black-pre-commit-mirror
+    rev: 25.9.0
     hooks:
       - id: black
         args: [--target-version=py39]
@@ -55,7 +55,7 @@ repos:
 
   # Lint: Dockerfile
   - repo: https://github.com/hadolint/hadolint
-    rev: v2.13.1-beta
+    rev: v2.14.0
     hooks:
       - id: hadolint-docker
         entry: hadolint/hadolint:v2.12.1-beta hadolint

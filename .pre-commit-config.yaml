@@ -28,7 +28,7 @@ repos:
 
   # Autoformat: Python code
   - repo: https://github.com/psf/black-pre-commit-mirror
-    rev: 25.12.0
+    rev: 26.1.0
     hooks:
       - id: black
         args: [--target-version=py39]
@@ -62,7 +62,7 @@ repos:
 
   # Lint: YAML
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.37.1
+    rev: v1.38.0
     hooks:
       - id: yamllint
         args: ["-d {extends: relaxed, rules: {line-length: disable}}", "-s"]

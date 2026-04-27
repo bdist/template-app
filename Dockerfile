@@ -1,6 +1,7 @@
 # Copyright (c) BDist Development Team
 # Distributed under the terms of the Modified BSD License.
-FROM python:3.12-slim-bookworm
+ARG PYTHON_VERSION=3.13
+FROM ghcr.io/astral-sh/uv:python${PYTHON_VERSION}-trixie-slim
 
 LABEL maintainer="Flavio Martins <flavio.f.martins@tecnico.ulisboa.pt>"
 
@@ -14,7 +15,7 @@ ENV PYTHONUNBUFFERED=1
 COPY ./requirements.txt /app/requirements.txt
 
 # Install the required python dependencies
-RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
+RUN uv pip install --system --no-cache --requirement /app/requirements.txt
 
 WORKDIR /app
 

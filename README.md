@@ -1,5 +1,47 @@
 # Flask Web app
 
+## Docker Python Version
+
+The Docker images default to Python 3.13.
+
+Use Python 3.14 by passing a build argument:
+
+```bash
+docker build --build-arg PYTHON_VERSION=3.14 -t template-app .
+```
+
+## Local Development with uv
+
+1. Install `uv`:
+
+   ```bash
+   curl -LsSf https://astral.sh/uv/install.sh | sh
+   ```
+
+2. Create a virtual environment:
+
+   ```bash
+   uv venv
+   ```
+
+3. Activate the environment:
+
+   ```bash
+   source .venv/bin/activate
+   ```
+
+4. Install dependencies:
+
+   ```bash
+   uv pip install --requirement requirements.txt
+   ```
+
+5. Run the app:
+
+   ```bash
+   ./start
+   ```
+
 ## Deploy on Fly.io (Optional)
 
 1. [Signup to Fly.io](https://fly.io/app/sign-up/)

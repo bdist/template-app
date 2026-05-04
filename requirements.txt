@@ -4,5 +4,5 @@ Flask-Limiter[redis]>=4.1.1
 gunicorn>=25.3.0
 packaging==26.2
 psycopg[binary,pool]>=3.3.3
-Werkzeug>=3.0.1
+Werkzeug>=3.1.8
 wheel

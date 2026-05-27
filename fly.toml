@@ -4,7 +4,7 @@
 #
 
 app = "bdist-template-app"
-primary_region = "mad"
+primary_region = "ams"
 swap_size_mb = 256
 
 [build]

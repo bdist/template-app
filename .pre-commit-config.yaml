@@ -21,7 +21,7 @@ repos:
 
   # Automatically sort python imports
   - repo: https://github.com/PyCQA/isort
-    rev: 9.0.0a3
+    rev: 9.0.0b1
     hooks:
       - id: isort
         args: [--profile, black]
@@ -35,7 +35,7 @@ repos:
 
   # Autoformat: HTML, Jinja, etc.
   - repo: https://github.com/djlint/djLint
-    rev: v1.36.4
+    rev: v1.43.2
     hooks:
       - id: djlint-reformat-jinja
         files: "\\.html"
@@ -55,7 +55,7 @@ repos:
 
   # Lint: Dockerfile
   - repo: https://github.com/hadolint/hadolint
-    rev: v2.14.0
+    rev: v2.15.1
     hooks:
       - id: hadolint-docker
         entry: hadolint/hadolint:v2.12.1-beta hadolint
@@ -90,7 +90,7 @@ repos:
 
   # Lint: Markdown
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.48.0
+    rev: v0.49.1
     hooks:
       - id: markdownlint
         args: ["--fix"]

@@ -14,8 +14,8 @@ COPY pyproject.toml uv.lock /app/
 # Compile installed Python modules to reduce application startup time.
 ENV UV_COMPILE_BYTECODE=1
 
-# Install locked runtime dependencies without development dependency groups.
-RUN uv sync --project /app --locked --no-dev --no-cache
+# Install locked runtime dependencies and the optional fast extra without development groups.
+RUN uv sync --project /app --locked --no-dev --extra fast --no-cache
 
 # Add application source after installing dependencies to preserve the dependency cache.
 COPY --chown=app:app . /app

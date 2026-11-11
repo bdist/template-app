@@ -98,7 +98,7 @@ docker build --build-arg PYTHON_VERSION=3.15 -t template-app .
 
 ## Deploy on Heroku (Optional)
 
-Heroku's Python buildpack installs dependencies from `uv.lock`. Commit both `pyproject.toml` and `uv.lock`, and avoid adding another package-manager file.
+Heroku's Python buildpack installs dependencies from `uv.lock`. The `bin/post_compile` hook selects the `fast` optional dependency for production while preserving Heroku CI's default dependency groups. Commit both `pyproject.toml` and `uv.lock`, and avoid adding another package-manager file.
 
 1. [Signup to Heroku](https://signup.heroku.com/)
 

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+uv_args=(sync --locked --extra fast)
+if [[ ! -v INSTALL_TEST ]]; then
+  uv_args+=(--no-default-groups)
+fi
+
+uv "${uv_args[@]}"

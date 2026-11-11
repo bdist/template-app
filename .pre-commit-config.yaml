@@ -11,89 +11,61 @@
 #
 # See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
+exclude: '^docs/|/migrations/|devcontainer.json'
+default_stages: [pre-commit]
+minimum_pre_commit_version: '3.2.0'
+
+default_language_version:
+  python: python3.14
+
 repos:
-  # Autoupdate: Python code
-  - repo: https://github.com/asottile/pyupgrade
-    rev: v3.22.0
-    hooks:
-      - id: pyupgrade
-        args: [--py39-plus]
-
-  # Automatically sort python imports
-  - repo: https://github.com/PyCQA/isort
-    rev: 10.0.0b2
-    hooks:
-      - id: isort
-        args: [--profile, black]
-
-  # Autoformat: Python code
-  - repo: https://github.com/psf/black-pre-commit-mirror
-    rev: 26.10.1
-    hooks:
-      - id: black
-        args: [--target-version=py39]
-
-  # Autoformat: HTML, Jinja, etc.
-  - repo: https://github.com/djlint/djLint
-    rev: v1.49.3
-    hooks:
-      - id: djlint-reformat-jinja
-        files: "\\.html"
-        types_or: ["html"]
-      - id: djlint-jinja
-        files: "\\.html"
-        types_or: ["html"]
-
-  # `pre-commit sample-config` default hooks
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
-      - id: check-added-large-files
-      - id: end-of-file-fixer
-      - id: requirements-txt-fixer
       - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-json
+      - id: check-toml
+      - id: check-xml
+      - id: check-yaml
+      - id: debug-statements
+      - id: check-builtin-literals
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: check-docstring-first
+      - id: detect-private-key
+
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v4.0.0-alpha.8
+    hooks:
+      - id: prettier
+        types_or:
+          [javascript, jsx, ts, tsx, json, css, scss, markdown, yaml, html]
+        args: ['--tab-width', '2', '--single-quote']
+
+  # Run the Ruff linter.
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.17.1
+    hooks:
+      # Linter
+      - id: ruff-check
+        args: [--fix, --exit-non-zero-on-fix]
+      # Formatter
+      - id: ruff-format
+
+  - repo: https://github.com/tox-dev/pyproject-fmt
+    rev: v2.30.3
+    hooks:
+      - id: pyproject-fmt
 
   # Lint: Dockerfile
   - repo: https://github.com/hadolint/hadolint
     rev: v2.15.1
     hooks:
       - id: hadolint-docker
-        entry: hadolint/hadolint:v2.12.1-beta hadolint
-
-  # Lint: YAML
-  - repo: https://github.com/adrienverge/yamllint
-    rev: v1.38.0
-    hooks:
-      - id: yamllint
-        args: ["-d {extends: relaxed, rules: {line-length: disable}}", "-s"]
-        files: \.(yaml|yml)$
-
-  # Lint: Bash scripts
-  - repo: https://github.com/openstack/bashate
-    rev: 2.1.1
-    hooks:
-      - id: bashate
-        args: ["--ignore=E006"]
-
-  # Lint: Shell scripts
-  - repo: https://github.com/shellcheck-py/shellcheck-py
-    rev: v0.11.0.1-1
-    hooks:
-      - id: shellcheck
-        args: ["-x"]
-
-  # Lint: Python
-  - repo: https://github.com/PyCQA/flake8
-    rev: 7.5.0
-    hooks:
-      - id: flake8
-
-  # Lint: Markdown
-  - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.50.0
-    hooks:
-      - id: markdownlint
-        args: ["--fix"]
+        entry: hadolint/hadolint:v2.14.0 hadolint
+        types: [file]
+        files: ^Dockerfile$
 
 # pre-commit.ci config reference: https://pre-commit.ci/#configuration
 ci:

@@ -1,5 +1,4 @@
 .editorconfig
-.flake8
 .gitattributes
 .github
 .gitignore
@@ -7,8 +6,9 @@
 .markdownlint.yaml
 .pre-commit-config.yaml
 .git
+.venv
+.node_modules/
 fly.toml
 Procfile
 README.md
 runtime.txt
-setup.cfg

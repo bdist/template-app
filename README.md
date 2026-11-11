@@ -2,12 +2,12 @@
 
 ## Docker Python Version
 
-The Docker images default to Python 3.13.
+The Docker images default to Python 3.14.
 
-Use Python 3.14 by passing a build argument:
+Build with Python 3.15 by passing a build argument:
 
 ```bash
-docker build --build-arg PYTHON_VERSION=3.14 -t template-app .
+docker build --build-arg PYTHON_VERSION=3.15 -t template-app .
 ```
 
 ## Local Development with uv
@@ -18,10 +18,10 @@ docker build --build-arg PYTHON_VERSION=3.14 -t template-app .
    curl -LsSf https://astral.sh/uv/install.sh | sh
    ```
 
-2. Create a virtual environment:
+2. Synchronize the project and create its virtual environment:
 
    ```bash
-   uv venv
+   uv sync --locked
    ```
 
 3. Activate the environment:
@@ -30,13 +30,7 @@ docker build --build-arg PYTHON_VERSION=3.14 -t template-app .
    source .venv/bin/activate
    ```
 
-4. Install dependencies:
-
-   ```bash
-   uv pip install --requirement requirements.txt
-   ```
-
-5. Run the app:
+4. Run the app:
 
    ```bash
    ./start
@@ -103,6 +97,8 @@ docker build --build-arg PYTHON_VERSION=3.14 -t template-app .
 8. Open the `appname` index page at <https://appname.fly.dev/>
 
 ## Deploy on Heroku (Optional)
+
+Heroku's Python buildpack installs dependencies from `uv.lock`. Commit both `pyproject.toml` and `uv.lock`, and avoid adding another package-manager file.
 
 1. [Signup to Heroku](https://signup.heroku.com/)
 

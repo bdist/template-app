@@ -10,6 +10,7 @@ accesslog = "-"
 errorlog = "-"
 loglevel = getenv("WSGI_LOG_LEVEL", "info")
 worker_class = getenv("GUNICORN_WORKER_CLASS", "gthread")
+http_parser = "fast"
 threads = int(getenv("WSGI_THREADS", 2))
 reload = getenv("DEV", "false").strip().lower() in ("1", "true")
 # improve fairness

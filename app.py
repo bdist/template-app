@@ -1,8 +1,7 @@
-#!/usr/bin/python3
-import os
 from logging.config import dictConfig
 
-from flask import Flask, jsonify
+from flask import Flask
+from flask import jsonify
 
 dictConfig(
     {
@@ -10,17 +9,17 @@ dictConfig(
         "formatters": {
             "default": {
                 "format": "[%(asctime)s] %(levelname)s in %(module)s:%(lineno)s - %(funcName)20s(): %(message)s",
-            }
+            },
         },
         "handlers": {
             "wsgi": {
                 "class": "logging.StreamHandler",
                 "stream": "ext://flask.logging.wsgi_errors_stream",
                 "formatter": "default",
-            }
+            },
         },
         "root": {"level": "INFO", "handlers": ["wsgi"]},
-    }
+    },
 )
 
 app = Flask(__name__)
